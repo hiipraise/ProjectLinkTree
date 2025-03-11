@@ -1,0 +1,102 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1f2937; /* Dark gray background */
+    color: #ffffff; /* White text */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #9ca3af; /* Light gray */
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+}
+
+.link-btn {
+    background-color: #374151; /* Gray button */
+    color: #ffffff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Start hidden for animation */
+    transform: translateX(-50px); /* Start off-screen to the left */
+}
+
+.link-btn.visible {
+    opacity: 1; /* Fade in */
+    transform: translateX(0); /* Slide to original position */
+}
+
+.link-btn:hover {
+    background-color: #4b5563; /* Darker gray on hover */
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+.link-btn.disabled {
+    background-color: #4b5563; /* Slightly lighter gray */
+    color: #9ca3af; /* Grayed-out text */
+    cursor: not-allowed;
+}
+
+.link-btn.disabled:hover {
+    background-color: #4b5563; /* No change on hover */
+    transform: none; /* No scale effect */
+}
+
+.contact {
+    margin-top: 20px;
+    color: #6b7280; /* Muted gray */
+}
+
+.contact a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contact a:hover {
+    color: #d1d5db; /* Light gray on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .link-btn {
+        padding: 10px 15px;
+    }
+}
