@@ -1,102 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 /* Reset default margins and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #1f2937; /* Dark gray background */
-    color: #ffffff; /* White text */
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  background-color: #1f2937; /* Dark gray background */
+  color: #ffffff; /* White text */
+  font-family: "Nunito Sans", sans-serif; /* Use Nunito Sans font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px; /* Add some padding for smaller screens */
 }
 
 .container {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
+  max-width: 800px; /* Increased max-width for better layout */
+  width: 100%;
+  padding: 30px; /* More padding */
+  text-align: center;
+  background-color: #2b3544; /* Slightly lighter dark background for the container */
+  border-radius: 12px; /* Rounded corners for the container */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+  font-size: 2.5rem; /* Larger heading */
+  margin-bottom: 15px;
+  color: #e0e7ff; /* Slightly brighter title color */
 }
 
 .subtitle {
-    color: #9ca3af; /* Light gray */
-    margin-bottom: 20px;
-}
-
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between buttons */
-}
-
-.link-btn {
-    background-color: #374151; /* Gray button */
-    color: #ffffff;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    display: block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    opacity: 0; /* Start hidden for animation */
-    transform: translateX(-50px); /* Start off-screen to the left */
-}
-
-.link-btn.visible {
-    opacity: 1; /* Fade in */
-    transform: translateX(0); /* Slide to original position */
-}
-
-.link-btn:hover {
-    background-color: #4b5563; /* Darker gray on hover */
-    transform: scale(1.05); /* Slight scale-up effect */
-}
-
-.link-btn.disabled {
-    background-color: #4b5563; /* Slightly lighter gray */
-    color: #9ca3af; /* Grayed-out text */
-    cursor: not-allowed;
-}
-
-.link-btn.disabled:hover {
-    background-color: #4b5563; /* No change on hover */
-    transform: none; /* No scale effect */
+  color: #aeb6c7; /* Slightly darker light gray */
+  margin-bottom: 25px;
+  font-size: 1.1rem;
 }
 
 .contact {
-    margin-top: 20px;
-    color: #6b7280; /* Muted gray */
+  margin-top: 25px; /* Increased margin */
+  margin-bottom: 15px; /* Add bottom margin for separation */
+  color: #8b929e; /* Muted gray for contact info */
 }
 
 .contact a {
-    color: #ffffff;
-    text-decoration: underline;
+  color: #92e0ff; /* A subtle blue for the email link */
+  text-decoration: none; /* No underline by default */
+  transition: color 0.3s ease;
 }
 
 .contact a:hover {
-    color: #d1d5db; /* Light gray on hover */
+  color: #c9f0ff; /* Lighter blue on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.description {
+  margin-bottom: 35px; /* More space below description */
+  line-height: 1.6; /* Better readability */
+  color: #d1d5db; /* Lighter gray for description text */
+}
+
+/* --- Project Links Grid Layout --- */
+.links {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+  gap: 20px; /* Space between grid items */
+  justify-content: center; /* Center items in the grid */
+}
+
+.link-btn {
+  background-color: #374151; /* Gray button */
+  color: #ffffff;
+  padding: 15px 25px; /* Increased padding for larger buttons */
+  text-decoration: none;
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* More prominent shadow */
+  display: flex; /* Use flexbox for button content (if needed for alignment) */
+  justify-content: center; /* Center text within the button */
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px); /* Start slightly below for animation */
+}
+
+.link-btn.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide to original position */
+}
+
+.link-btn:hover {
+  background-color: #4b5563; /* Darker gray on hover */
+  transform: translateY(-5px) scale(1.02); /* Slight lift and scale-up effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35); /* More pronounced shadow on hover */
+}
+
+.link-btn.disabled {
+  background-color: #4b5563; /* Slightly lighter gray */
+  color: #9ca3af; /* Grayed-out text */
+  cursor: not-allowed;
+  opacity: 0.7; /* Slightly dim the disabled button */
+}
+
+.link-btn.disabled:hover {
+  background-color: #4b5563; /* No change on hover */
+  transform: translateY(0) scale(1); /* No lift or scale effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Original shadow on hover */
 }
 
 /* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 25px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .links {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width for smaller screens */
+  }
+}
+
 @media (max-width: 480px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .link-btn {
-        padding: 10px 15px;
-    }
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .link-btn {
+    padding: 12px 20px;
+  }
+  .links {
+    grid-template-columns: 1fr; /* Stack vertically on very small screens */
+  }
 }
