@@ -1,12 +1,22 @@
-// Wait for the page to load
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all the link buttons
-  const buttons = document.querySelectorAll(".link-btn");
+  const cards = document.querySelectorAll(".project-card");
 
-  // Loop through each button and add the 'visible' class with a delay
-  buttons.forEach((button, index) => {
-    setTimeout(() => {
-      button.classList.add("visible");
-    }, index * 150); // Slightly faster delay for quicker reveal
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Stop observing after it's visible
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach((card) => {
+    observer.observe(card);
   });
 });
